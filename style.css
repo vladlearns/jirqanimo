@@ -1,0 +1,141 @@
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+:root {
+  --background-main: #0f222a;
+  --background-side: #0f222a;
+  --primary-blue: #c3bdb5;
+  --secondary-blue: #c3bdb5;
+  --primary-orange: #ff6719;
+  --secondary-orange: #ffaa80;
+}
+
+body {
+  font-family: Inter, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  background-color: var(--background-main);
+  color: var(--primary-blue);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+nav {
+  background-color: var(--background-side);
+  padding: 48px;
+}
+
+nav .stats {
+  display: flex;
+  flex-direction: row;
+}
+
+.closed-story {
+  display: flex;
+  flex-direction: row;
+}
+
+.closed {
+  display: none;
+}
+
+nav .header {
+  text-align: center;
+}
+
+main {
+  background-color: var(--background-main);
+  padding: 48px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 14px;
+  color: var(--secondary-blue);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 24px 0 0 0;
+  text-transform: uppercase;
+}
+
+rect {
+  fill: var(--primary-orange);
+  transition: fill 0.2s ease-in-out;
+}
+
+rect:hover {
+  fill: var(--secondary-orange);
+}
+
+circle.ring {
+  fill: none;
+  stroke: var(--primary-blue);
+  stroke-width: 1px;
+}
+
+text {
+  fill: var(--secondary-orange);
+  text-anchor: middle;
+}
+
+text.dailyNumber {
+  fill: var(--primary-blue);
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+text.day {
+  opacity: 1;
+  transition: 0.2s ease-in-out;
+}
+
+g:hover text.day {
+  opacity: 0;
+}
+
+g:hover text.dailyNumber {
+  opacity: 1;
+}
+
+text.number {
+  opacity: 0;
+}
+g:hover text.number {
+  opacity: 1;
+}
+
+.button-transparent {
+  opacity: 0;
+}
+.nav.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button {
+  padding: 0 0 0 0;
+  font-size: 24px;
+  cursor: pointer;
+
+  background-color: var(--background-side);
+  color: var(--primary-blue);
+
+  transition: all 0.3s;
+}
+
+.expander {
+  background-color: var(--background-main);
+}
