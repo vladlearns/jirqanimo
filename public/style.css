@@ -52,7 +52,6 @@ nav .header {
 	text-align: center;
 }
 #test-items {
-	border-left: 6px solid#c3bdb5;
 	padding: 48px 0px 0px 100px;
 	height: 100%;
 }
@@ -62,11 +61,12 @@ nav .header {
 	justify-content: flex-start;
 	height: 100%;
 	padding: 0px 0px 0px 100px;
-	border-left: 6px solid#c3bdb5;
 }
 main {
 	background-color: var(--background-main);
 	padding: 48px 0px 0px 50px;
+	border-left: 6px solid#c3bdb5;
+	border-right: 6px solid#c3bdb5;
 }
 
 h1 {
