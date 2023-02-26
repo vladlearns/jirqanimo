@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<nav>
+			<div class="nav buttons">
+				<div class="button button-nav"><<</div>
+				<h1 class="header">JIRQANIMO</h1>
+				<div class="button fullscreen">>></div>
+			</div>
+
+			<div class="stats">
+				<div id="stories">
+					<div class="story">
+						<h2>Opened Stories</h2>
+						<p class="opened">--</p>
+					</div>
+					<div>
+						<div class="story">
+							<h2>Closed Stories</h2>
+							<p class="closed-story">--</p>
+						</div>
+					</div>
+				</div>
+				<div id="bugs">
+					<div class="bug">
+						<h2>Not fixed Bugs</h2>
+						<p class="not-fixed">--</p>
+					</div>
+					<div class="bug">
+						<h2>Leaked Bugs</h2>
+						<p class="leaked">--</p>
+					</div>
+					<div class="bug">
+						<h2>SEO Bugs</h2>
+						<p class="seo">--</p>
+					</div>
+					<div class="bug">
+						<h2>UI Bugs</h2>
+						<p class="ui">--</p>
+					</div>
+					<div class="bug">
+						<h2>Functional Bugs</h2>
+						<p class="functional">--</p>
+					</div>
+					<div class="bug">
+						<h2>Translation Bugs</h2>
+						<p class="translation">--</p>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<div class="button expander button-transparent">Stats</div>
+			<h1>Opened Bugs</h1>
+			<svg id="opened" width="900" height="200"></svg>
+
+			<h1>Closed per day</h1>
+			<svg id="perDay" width="900" height="300"></svg>
+		</main>
+		<script src="../public/main.js"></script>
+	</body>
+</html>
