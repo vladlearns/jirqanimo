@@ -7,7 +7,7 @@ dotenv.config();
 
 const filePath = "data.csv";
 const space = process.env.CONFLUENCE_SPACE;
-const parentPageTitle = "Reports";
+const parentPageTitle = "Test Reports";
 
 const confluence = new Confluence({
 	username: process.env.EMAIL,
@@ -49,7 +49,7 @@ parse(csvData, { columns: true }, (err, rows) => {
 
 			confluence.postContent(
 				space,
-				`Report ${new Date().toLocaleDateString()}`,
+				`📊 Test Report ${new Date().toLocaleDateString()}`,
 				{
 					storage: {
 						value: tableMarkup,
