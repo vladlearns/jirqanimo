@@ -36,6 +36,11 @@ app.get("/run", (req, res) => {
 				return res.status(500).send(err.message);
 			}
 
+			if (stderr) {
+				console.error(stderr);
+				return res.status(500).send(stderr);
+			}
+
 			res.send(stdout);
 		});
 	}
@@ -44,6 +49,10 @@ app.get("/run", (req, res) => {
 			if (err) {
 				console.error(err);
 				return res.status(500).send(err.message);
+			}
+			if (stderr) {
+				console.error(stderr);
+				return res.status(500).send(stderr);
 			}
 
 			res.send(stdout);

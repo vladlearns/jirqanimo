@@ -23,20 +23,31 @@ async function getIssues(jql) {
 	return data;
 }
 
-const openedStories = await getIssues('status = "To Do"');
-const closedStories = await getIssues('status = "To Do"');
-const seoBugs = await getIssues(
-	'status = "To Do" AND labels = SEO_BUG order by created DESC'
-);
-const uiBugs = await getIssues(
-	'status = "To Do" AND labels = UI_BUG order by created DESC'
-);
-const functionalBugs = await getIssues(
-	'status = "To Do" AND labels = FUNCTIONAL_BUG order by created DESC'
-);
-const translationBugs = await getIssues('status = "To Do"');
-const notFixedBugs = await getIssues('status = "To Do"');
-const leakedBugs = await getIssues('status = "To Do"');
+async function getFilteredIssues(
+	status,
+	label,
+	sortField = "created",
+	sortOrder = "DESC",
+	sprint = null
+) {
+	const query =
+		`status = "${status}"` +
+		(label ? ` AND labels = "${label}"` : "") +
+		(sprint ? ` AND Sprint = "${sprint}"` : "");
+	const sortQuery = `order by ${sortField} ${sortOrder}`;
+	const fullQuery = label ? `${query} ${sortQuery}` : query;
+	const issues = await getIssues(fullQuery);
+	return issues;
+}
+
+const openedStories = await getFilteredIssues("To Do");
+const closedStories = await getFilteredIssues("Done");
+const seoBugs = await getFilteredIssues("To Do", "SEO_BUG");
+const uiBugs = await getFilteredIssues("To Do", "UI_BUG");
+const functionalBugs = await getFilteredIssues("To Do", "FUNCTIONAL_BUG");
+const translationBugs = await getFilteredIssues("To Do");
+const notFixedBugs = await getFilteredIssues("To Do");
+const leakedBugs = await getFilteredIssues("To Do");
 
 const stats = {
 	openedStories,
@@ -53,8 +64,7 @@ const currentDate = new Date().toUTCString();
 const collectIssues = (issues) => {
 	const issuesArray = [];
 	for (let i = 0; i < issues.total; i++) {
-		// TODO: add issue link from Jira, env
-		issuesArray.push(`${selectedIssue}=${issues.issues[i].key}`);
+		issuesArray.push(`${process.env.HOST}/browse/=${issues.issues[i].key}`);
 	}
 	return issuesArray;
 };

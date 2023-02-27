@@ -6,7 +6,7 @@ const Confluence = require("confluence-api");
 dotenv.config();
 
 const filePath = "data.csv";
-const space = "IS";
+const space = process.env.CONFLUENCE_SPACE;
 const parentPageTitle = "Reports";
 
 const confluence = new Confluence({
